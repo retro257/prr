@@ -32,7 +32,8 @@ def check(url):
         file = open("new_repo.txt", "a+")
         
         header = {"user-agent": get_agent()}
-        page = requests.request("GET", "https://github.com"+url, headers=header)
+        print("https://github.com"+url)
+        page = requests.get("https://github.com"+url, headers=header)
 
         soup = bs(page.text, "html.parser")
 
