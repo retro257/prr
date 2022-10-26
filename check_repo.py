@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import datetime
 import threading
+import time
 
 def get_agent():
 	import random
@@ -68,3 +69,4 @@ while True:
 
             
             break
+    time.sleep(2)
