@@ -28,7 +28,7 @@ def get_agent():
 		return s
 
 def check(url):
-    try:
+
         file = open("new_repo.txt", "a+")
         
         header = {"user-agent": get_agent()}
@@ -40,8 +40,7 @@ def check(url):
         if len(allNews) > 5:
             file.write(url+"\n")
             file.close()
-    except Exception:
-        None
+
         
 
 while True:
