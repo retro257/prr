@@ -28,18 +28,20 @@ def get_agent():
 		return s
 
 def check(url):
-    file = open("new_repo.txt", "a+")
-    
-    header = {"user-agent": get_agent()}
-    page = requests.request("GET", "https://github.com"+url, headers=header)
+    try:
+        file = open("new_repo.txt", "a+")
+        
+        header = {"user-agent": get_agent()}
+        page = requests.request("GET", "https://github.com"+url, headers=header)
 
-    soup = bs(page.text, "html.parser")
+        soup = bs(page.text, "html.parser")
 
-    allNews = soup.findAll('div', class_='Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item')
-    if len(allNews) > 5:
-        file.write(url+"\n")
-        file.close()
-    
+        allNews = soup.findAll('div', class_='Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item')
+        if len(allNews) > 5:
+            file.write(url+"\n")
+            file.close()
+    except Exception:
+        None
         
 
 while True:
